@@ -29,7 +29,7 @@ public class MagnusSoccerKick : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isShot) return;
+        if (!isShot) return;
         Vector3 velocity = rb.linearVelocity;
         Vector3 spin = rb.angularVelocity;
 
