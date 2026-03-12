@@ -1,28 +1,25 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class AngularVelocity : MonoBehaviour
+public class TorqueRotate : MonoBehaviour
 {
-    public float Angularspeed;
+    public float ToquePower;
 
     Rigidbody rb;
-
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
+    
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if (Keyboard.current.aKey.isPressed)
+        if (Keyboard.current.dKey.isPressed)
         {
-            rb.angularVelocity = new Vector3(0, Angularspeed, 0);
-        }
-        else 
-        {
-            rb.angularVelocity = Vector3.zero;
+            rb.AddTorque(Vector3.forward * ToquePower);
         }
     }
 }
